@@ -2,10 +2,13 @@ package cm.domain;
 
 public class WaterTank {
 
-    public void openWaterValve (){
+    private void openWaterValve (){
         System.out.println("otwieram zawor wody");
     }
 
 
-
+    public void giveWate() {
+        openWaterValve();
+        System.out.println("podaje wode");
+    }
 }
