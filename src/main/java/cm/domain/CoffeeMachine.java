@@ -2,12 +2,17 @@ package cm.domain;
 
 public class CoffeeMachine {
 
-    WaterTank waterTank = new WaterTank();
-    CoffeeTank coffeeTank = new CoffeeTank();
+    WaterTank waterTank;
+    CoffeeTank coffeeTank;
 
-public void coffeeButton (){
+    public CoffeeMachine(WaterTank waterTank, CoffeeTank coffeeTank) {
+        this.waterTank = waterTank;
+        this.coffeeTank = coffeeTank;
+    }
+
+    public void coffeeButton (){
     coffeeTank.giveCoffee();
-    waterTank.giveWate();
+    waterTank.giveWater();
 
     System.out.println("dupa a nie kawa");
 }

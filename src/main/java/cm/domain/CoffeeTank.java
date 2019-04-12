@@ -1,13 +1,8 @@
 package cm.domain;
 
-public class CoffeeTank {
+public interface CoffeeTank {
 
-    public void giveCoffee (){
-        grindCoffee();
-        System.out.println("podaje kawe");
-    }
+    void giveCoffee();
 
-    private void grindCoffee() {
-        System.out.println("miele kawe");
-    }
+    void grindCoffee();
 }
