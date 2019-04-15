@@ -10,8 +10,9 @@ public class CMTest {
         WaterHeater waterHeater = new DemoWaterHeater();
         CoffeeGrinder coffeeGrinder = new DemoCoffeeGrinder();
         SugarTank sugarTank = new DemoSugarTank();
+        MilkTank milkTank = new DemoMilkTank();
 
-        CoffeeMachine coffeeMachine = new CoffeeMachine(waterTank,coffeeTank,waterHeater, coffeeGrinder, sugarTank);
+        CoffeeMachine coffeeMachine = new CoffeeMachine(waterTank,coffeeTank,waterHeater, coffeeGrinder, sugarTank, milkTank);
 
         coffeeMachine.coffeeButton();
         Thread.sleep(1000);
