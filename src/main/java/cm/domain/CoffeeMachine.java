@@ -10,6 +10,7 @@ public class CoffeeMachine {
     MilkTank milkTank;
     CupContainer cupContainer;
     Display display;
+    String message;
 
     public CoffeeMachine(WaterTank waterTank, CoffeeTank coffeeTank,WaterHeater waterHeater, CoffeeGrinder coffeeGrinder, SugarTank sugarTank, MilkTank milkTank, CupContainer cupContainer, Display display) {
         this.waterTank = waterTank;
@@ -22,19 +23,50 @@ public class CoffeeMachine {
         this.display = display;
     }
 
-    public void coffeeButton (){
-    cupContainer.putCup();
-    coffeeGrinder.grindCoffee();
-    coffeeTank.giveCoffee();
-    sugarTank.adSugar();
-    sugarTank.adSugar();
-    milkTank.addMilk();
-    waterTank.giveWater();
-    waterHeater.applyHeat();
+    public void coffeeBlackButton (){
+        cupContainer.putCup();
+        coffeeGrinder.grindCoffee();
+        coffeeTank.giveCoffee();
 
+        sugarTank.adSugar();
+        sugarTank.adSugar();
 
-    System.out.println("dupa a nie kawa");
+        waterHeater.applyHeat();
+        waterTank.giveWater();
+
+        message = "Kawa Czarna gotowa";
+        display.displayMessage(message);
 }
+    public void coffeeExpressoButton(){
+        cupContainer.putCup();
+        coffeeGrinder.grindCoffee();
+        coffeeTank.giveCoffee();
+
+        sugarTank.adSugar();
+        sugarTank.adSugar();
+
+        waterHeater.applyHeat();
+        waterTank.giveWater();
+
+        message = "Kawa Expresso gotowa";
+        display.displayMessage(message);
+    }
+
+    public void coffeeWhiteButton(){
+        cupContainer.putCup();
+        coffeeGrinder.grindCoffee();
+        coffeeTank.giveCoffee();
+
+        sugarTank.adSugar();
+        sugarTank.adSugar();
+        milkTank.addMilk();
+        waterHeater.applyHeat();
+        waterTank.giveWater();
+
+        message = "Kawa Biala gotowa";
+        display.displayMessage(message);
+
+    }
 
 
 
