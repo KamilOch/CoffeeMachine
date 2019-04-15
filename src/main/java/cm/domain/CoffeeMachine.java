@@ -23,15 +23,27 @@ public class CoffeeMachine {
         this.display = display;
     }
 
+    void coffee (int cukier){
+
+        for (int i=0; i<cukier; i++){
+            sugarTank.adSugar();
+        }
+
+    }
+
+
+
     public void coffeeBlackButton (){
+
         cupContainer.putCup();
         coffeeGrinder.grindCoffee();
         coffeeTank.giveCoffee();
 
-        sugarTank.adSugar();
-        sugarTank.adSugar();
+        coffee(2);
 
         waterHeater.applyHeat();
+        waterTank.giveWater();
+        waterTank.giveWater();
         waterTank.giveWater();
 
         message = "Kawa Czarna gotowa";
@@ -42,8 +54,7 @@ public class CoffeeMachine {
         coffeeGrinder.grindCoffee();
         coffeeTank.giveCoffee();
 
-        sugarTank.adSugar();
-        sugarTank.adSugar();
+        coffee(5);
 
         waterHeater.applyHeat();
         waterTank.giveWater();
@@ -57,10 +68,12 @@ public class CoffeeMachine {
         coffeeGrinder.grindCoffee();
         coffeeTank.giveCoffee();
 
-        sugarTank.adSugar();
-        sugarTank.adSugar();
+        coffee(1);
+
         milkTank.addMilk();
         waterHeater.applyHeat();
+        waterTank.giveWater();
+        waterTank.giveWater();
         waterTank.giveWater();
 
         message = "Kawa Biala gotowa";
