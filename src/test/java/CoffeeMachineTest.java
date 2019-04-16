@@ -1,4 +1,3 @@
-import cm.demo.*;
 import cm.domain.*;
 import org.junit.Test;
 
@@ -7,14 +6,14 @@ import static org.mockito.Mockito.*;
 
 public class CoffeeMachineTest {
 
-    WaterTank waterTank = mock(DemoWaterTank.class);
-    CoffeeTank coffeeTank = mock(DemoCoffeeTank.class);
-    WaterHeater waterHeater = mock(DemoWaterHeater.class);
-    CoffeeGrinder coffeeGrinder = mock(DemoCoffeeGrinder.class);
-    SugarTank sugarTank = mock(DemoSugarTank.class);
-    MilkTank milkTank = mock(DemoMilkTank.class);
-    CupContainer cupContainer = mock(DemoCupContainer.class);
-    Display display = mock(DemoDisplay.class);
+    WaterTank waterTank = mock(WaterTank.class);
+    CoffeeTank coffeeTank = mock(CoffeeTank.class);
+    WaterHeater waterHeater = mock(WaterHeater.class);
+    CoffeeGrinder coffeeGrinder = mock(CoffeeGrinder.class);
+    SugarTank sugarTank = mock(SugarTank.class);
+    MilkTank milkTank = mock(MilkTank.class);
+    CupContainer cupContainer = mock(CupContainer.class);
+    Display display = mock(Display.class);
 
     CoffeeMachine cmTest = new CoffeeMachine(waterTank,coffeeTank,waterHeater, coffeeGrinder, sugarTank, milkTank, cupContainer, display);
 
@@ -33,6 +32,7 @@ public class CoffeeMachineTest {
         verify(waterHeater).applyHeat();
         verify(waterTank, times (3)).giveWater();
         verify(display).displayMessage("Kawa Czarna gotowa");
+        verifyZeroInteractions(milkTank);
 
     }
 
@@ -50,7 +50,7 @@ public class CoffeeMachineTest {
         verify(waterHeater).applyHeat();
         verify(waterTank, times (1)).giveWater();
         verify(display).displayMessage("Kawa Espresso gotowa");
-
+        verifyZeroInteractions(milkTank);
     }
 
     @Test
@@ -64,6 +64,7 @@ public class CoffeeMachineTest {
         verify(coffeeGrinder).grindCoffee();
         verify(coffeeTank).giveCoffee();
         verify(sugarTank, times(1)).adSugar();
+        verify(milkTank).addMilk();
         verify(waterHeater).applyHeat();
         verify(waterTank, times (2)).giveWater();
         verify(display).displayMessage("Kawa Biala gotowa");
