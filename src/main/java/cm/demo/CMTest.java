@@ -18,7 +18,7 @@ public class CMTest {
 
         coffeeMachine.coffeeBlackButton();
         Thread.sleep(1000);
-        coffeeMachine.coffeeExpressoButton();
+        coffeeMachine.coffeeEspressoButton();
         Thread.sleep(1000);
         coffeeMachine.coffeeWhiteButton();
         Thread.sleep(1000);

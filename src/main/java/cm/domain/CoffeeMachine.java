@@ -49,7 +49,7 @@ public class CoffeeMachine {
         message = "Kawa Czarna gotowa";
         display.displayMessage(message);
 }
-    public void coffeeExpressoButton(){
+    public void coffeeEspressoButton(){
         cupContainer.putCup();
         coffeeGrinder.grindCoffee();
         coffeeTank.giveCoffee();
@@ -59,7 +59,7 @@ public class CoffeeMachine {
         waterHeater.applyHeat();
         waterTank.giveWater();
 
-        message = "Kawa Expresso gotowa";
+        message = "Kawa Espresso gotowa";
         display.displayMessage(message);
     }
 
@@ -72,7 +72,6 @@ public class CoffeeMachine {
 
         milkTank.addMilk();
         waterHeater.applyHeat();
-        waterTank.giveWater();
         waterTank.giveWater();
         waterTank.giveWater();
 
