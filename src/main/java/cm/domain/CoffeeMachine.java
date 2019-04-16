@@ -10,9 +10,13 @@ public class CoffeeMachine {
     MilkTank milkTank;
     CupContainer cupContainer;
     Display display;
-    String message;
+    CashCounter cashCounter;
 
-    public CoffeeMachine(WaterTank waterTank, CoffeeTank coffeeTank,WaterHeater waterHeater, CoffeeGrinder coffeeGrinder, SugarTank sugarTank, MilkTank milkTank, CupContainer cupContainer, Display display) {
+    String message;
+    int cash=0;
+
+
+    public CoffeeMachine(WaterTank waterTank, CoffeeTank coffeeTank,WaterHeater waterHeater, CoffeeGrinder coffeeGrinder, SugarTank sugarTank, MilkTank milkTank, CupContainer cupContainer, Display display, CashCounter cashCounter) {
         this.waterTank = waterTank;
         this.coffeeTank = coffeeTank;
         this.waterHeater = waterHeater;
@@ -21,62 +25,95 @@ public class CoffeeMachine {
         this.milkTank = milkTank;
         this.cupContainer = cupContainer;
         this.display = display;
+        this.cashCounter = cashCounter;
     }
+
+    public void putCash (int put){
+        cash +=put;
+    }
+
+    private void giveBackCash(int rest){
+        System.out.println("Wydaje reszte : "+ cashCounter.restCash(rest)+" PLN");
+        cash=0;
+    }
+
+    private boolean haveEnoughMoney(int cost){
+        if (cash<cost){
+            message="Za malo kasy";
+            giveBackCash(cash);
+            return false;
+        } else return true;
+    }
+
+
 
     void coffee (int cukier){
 
         for (int i=0; i<cukier; i++){
             sugarTank.adSugar();
         }
-
     }
 
 
 
     public void coffeeBlackButton (){
+        int cost = 2;
+        if(haveEnoughMoney(cost)) {
+            cupContainer.putCup();
+            coffeeGrinder.grindCoffee();
+            coffeeTank.giveCoffee();
 
-        cupContainer.putCup();
-        coffeeGrinder.grindCoffee();
-        coffeeTank.giveCoffee();
+            coffee(2);
 
-        coffee(2);
+            waterHeater.applyHeat();
+            waterTank.giveWater();
+            waterTank.giveWater();
+            waterTank.giveWater();
 
-        waterHeater.applyHeat();
-        waterTank.giveWater();
-        waterTank.giveWater();
-        waterTank.giveWater();
-
-        message = "Kawa Czarna gotowa";
-        display.displayMessage(message);
+            message = "Kawa Czarna gotowa";
+            display.displayMessage(message);
+            cash -=cost;
+            giveBackCash(cash);
+        } else display.displayMessage(message);
 }
     public void coffeeEspressoButton(){
-        cupContainer.putCup();
-        coffeeGrinder.grindCoffee();
-        coffeeTank.giveCoffee();
+        int cost = 3;
+        if(haveEnoughMoney(cost)) {
+            cupContainer.putCup();
+            coffeeGrinder.grindCoffee();
+            coffeeTank.giveCoffee();
 
-        coffee(5);
+            coffee(5);
 
-        waterHeater.applyHeat();
-        waterTank.giveWater();
+            waterHeater.applyHeat();
+            waterTank.giveWater();
 
-        message = "Kawa Espresso gotowa";
-        display.displayMessage(message);
+            message = "Kawa Espresso gotowa";
+            display.displayMessage(message);
+            cash -=cost;
+            giveBackCash(cash);
+        } else display.displayMessage(message);
     }
 
     public void coffeeWhiteButton(){
-        cupContainer.putCup();
-        coffeeGrinder.grindCoffee();
-        coffeeTank.giveCoffee();
+        int cost = 4;
+        if(haveEnoughMoney(cost)) {
+            cupContainer.putCup();
+            coffeeGrinder.grindCoffee();
+            coffeeTank.giveCoffee();
 
-        coffee(1);
+            coffee(1);
 
-        milkTank.addMilk();
-        waterHeater.applyHeat();
-        waterTank.giveWater();
-        waterTank.giveWater();
+            milkTank.addMilk();
+            waterHeater.applyHeat();
+            waterTank.giveWater();
+            waterTank.giveWater();
 
-        message = "Kawa Biala gotowa";
-        display.displayMessage(message);
+            message = "Kawa Biala gotowa";
+            display.displayMessage(message);
+            cash -=cost;
+            giveBackCash(cash);
+        } else display.displayMessage(message);
 
     }
 

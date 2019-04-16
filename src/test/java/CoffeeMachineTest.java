@@ -14,8 +14,9 @@ public class CoffeeMachineTest {
     MilkTank milkTank = mock(MilkTank.class);
     CupContainer cupContainer = mock(CupContainer.class);
     Display display = mock(Display.class);
+    CashCounter cashCounter = mock(CashCounter.class);
 
-    CoffeeMachine cmTest = new CoffeeMachine(waterTank,coffeeTank,waterHeater, coffeeGrinder, sugarTank, milkTank, cupContainer, display);
+    CoffeeMachine cmTest = new CoffeeMachine(waterTank,coffeeTank,waterHeater, coffeeGrinder, sugarTank, milkTank, cupContainer, display, cashCounter);
 
 
     @Test
