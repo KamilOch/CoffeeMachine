@@ -22,7 +22,8 @@ public class CoffeeMachineTest {
     @Test
     public void shouldMakeBlackCoffee(){
         // Given
-
+        cmTest.putCash(5);
+        //when(cashCounter.countCash()).thenReturn(5);
         // When
         cmTest.coffeeBlackButton();
         // Then
@@ -34,13 +35,13 @@ public class CoffeeMachineTest {
         verify(waterTank, times (3)).giveWater();
         verify(display).displayMessage("Kawa Czarna gotowa");
         verifyZeroInteractions(milkTank);
-
     }
 
     @Test
     public void shouldMakeEspressoCoffee(){
         // Given
-
+        cmTest.putCash(5);
+        //when(cashCounter.countCash()).thenReturn(5);
         // When
         cmTest.coffeeEspressoButton();
         // Then
@@ -57,7 +58,7 @@ public class CoffeeMachineTest {
     @Test
     public void shouldMakeWhiteCoffee(){
         // Given
-
+        cmTest.putCash(5);
         // When
         cmTest.coffeeWhiteButton();
         // Then
@@ -69,8 +70,18 @@ public class CoffeeMachineTest {
         verify(waterHeater).applyHeat();
         verify(waterTank, times (2)).giveWater();
         verify(display).displayMessage("Kawa Biala gotowa");
-
     }
 
+    @Test
+    // tu jest cos nie tak !!!!
+    public void shouldAddMoneyThenDisplayNotEnoughMoney() {
+        // Given
+        cmTest.putCash(1);
+        //when(cashCounter.countCash()).thenReturn(5);
+        // When
+        cmTest.coffeeBlackButton();
+        // Then
+        verify(display).displayMessage("Za malo kasy");
+    }
 
 }
