@@ -47,14 +47,12 @@ public class CoffeeMachine {
 
 
 
-    void coffee (int cukier){
+    void sugarAmount(int cukier){
 
         for (int i=0; i<cukier; i++){
             sugarTank.adSugar();
         }
     }
-
-
 
     public void coffeeBlackButton (){
         int cost = 2;
@@ -62,7 +60,7 @@ public class CoffeeMachine {
             cupContainer.putCup();
             coffeeGrinder.grindCoffee();
             coffeeTank.giveCoffee();
-            coffee(2);
+            sugarAmount(2);
             waterHeater.applyHeat();
             waterTank.giveWater();
             waterTank.giveWater();
@@ -82,7 +80,7 @@ public class CoffeeMachine {
             cupContainer.putCup();
             coffeeGrinder.grindCoffee();
             coffeeTank.giveCoffee();
-            coffee(5);
+            sugarAmount(5);
             waterHeater.applyHeat();
             waterTank.giveWater();
 
@@ -101,7 +99,7 @@ public class CoffeeMachine {
             cupContainer.putCup();
             coffeeGrinder.grindCoffee();
             coffeeTank.giveCoffee();
-            coffee(1);
+            sugarAmount(1);
             milkTank.addMilk();
             waterHeater.applyHeat();
             waterTank.giveWater();
