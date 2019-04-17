@@ -38,10 +38,7 @@ public class CoffeeMachine {
     }
 
     private boolean haveEnoughMoney(int cost, int cash){
-
         if (cash<cost){
-            message="Za malo kasy";
-            giveBackCash(cash);
             return false;
         } else return true;
     }
@@ -74,7 +71,11 @@ public class CoffeeMachine {
             cash -=cost;
             giveBackCash(cash);
 
-        } else display.displayMessage(message);
+        } else {
+            message="Za malo kasy";
+            display.displayMessage(message);
+            giveBackCash(cash);
+        }
 }
     public void coffeeEspressoButton(){
         int cost = 3;
