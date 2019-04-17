@@ -27,17 +27,18 @@ public class CoffeeMachine {
         this.display = display;
         this.cashCounter = cashCounter;
     }
-
+/*
     public void putCash (){
         cash +=cashCounter.countCash();
     }
-
+*/
     private void giveBackCash(int rest){
         System.out.println("Wydaje reszte : "+ cashCounter.restCash(rest)+" PLN");
         cash=0;
     }
 
-    private boolean haveEnoughMoney(int cost){
+    private boolean haveEnoughMoney(int cost, int cash){
+
         if (cash<cost){
             message="Za malo kasy";
             giveBackCash(cash);
@@ -56,7 +57,8 @@ public class CoffeeMachine {
 
     public void coffeeBlackButton (){
         int cost = 2;
-        if(haveEnoughMoney(cost)) {
+        cash=cashCounter.countCash();
+        if(haveEnoughMoney(cost,cash)) {
             cupContainer.putCup();
             coffeeGrinder.grindCoffee();
             coffeeTank.giveCoffee();
@@ -76,7 +78,8 @@ public class CoffeeMachine {
 }
     public void coffeeEspressoButton(){
         int cost = 3;
-        if(haveEnoughMoney(cost)) {
+        cash=cashCounter.countCash();
+        if(haveEnoughMoney(cost, cash)) {
             cupContainer.putCup();
             coffeeGrinder.grindCoffee();
             coffeeTank.giveCoffee();
@@ -95,7 +98,8 @@ public class CoffeeMachine {
 
     public void coffeeWhiteButton(){
         int cost = 4;
-        if(haveEnoughMoney(cost)) {
+        cash=cashCounter.countCash();
+        if(haveEnoughMoney(cost, cash)) {
             cupContainer.putCup();
             coffeeGrinder.grindCoffee();
             coffeeTank.giveCoffee();

@@ -24,7 +24,7 @@ public class CoffeeMachineTest {
         // Given
         when(cashCounter.countCash()).thenReturn(5);
         // When
-        cmTest.putCash();
+        //cmTest.putCash();
         cmTest.coffeeBlackButton();
         // Then
         verify(cupContainer).putCup();
@@ -42,7 +42,7 @@ public class CoffeeMachineTest {
         // Given
         when(cashCounter.countCash()).thenReturn(5);
         // When
-        cmTest.putCash();
+        //cmTest.putCash();
         cmTest.coffeeEspressoButton();
         // Then
         verify(cupContainer).putCup();
@@ -60,7 +60,7 @@ public class CoffeeMachineTest {
         // Given
         when(cashCounter.countCash()).thenReturn(5);
         // When
-        cmTest.putCash();
+        //cmTest.putCash();
         cmTest.coffeeWhiteButton();
         // Then
         verify(cupContainer).putCup();
@@ -79,7 +79,7 @@ public class CoffeeMachineTest {
         // Given
         when(cashCounter.countCash()).thenReturn(1);
         // When
-        cmTest.putCash();
+        //cmTest.putCash();
         cmTest.coffeeBlackButton();
         // Then
         verify(display).displayMessage("Za malo kasy");

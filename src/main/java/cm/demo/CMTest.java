@@ -17,15 +17,16 @@ public class CMTest {
 
         CoffeeMachine coffeeMachine = new CoffeeMachine(waterTank,coffeeTank,waterHeater, coffeeGrinder, sugarTank, milkTank, cupContainer, display, cashCounter);
 
-        coffeeMachine.putCash();
+       // cashCounter.countCash();
+        //coffeeMachine.putCash();
         Thread.sleep(1000);
         coffeeMachine.coffeeBlackButton();
         System.out.println(" ");
-        coffeeMachine.putCash();
+        //coffeeMachine.putCash();
         Thread.sleep(1000);
         coffeeMachine.coffeeEspressoButton();
         System.out.println(" ");
-        coffeeMachine.putCash();
+        //coffeeMachine.putCash();
         Thread.sleep(1000);
         coffeeMachine.coffeeWhiteButton();
 
