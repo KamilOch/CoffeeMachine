@@ -28,8 +28,8 @@ public class CoffeeMachine {
         this.cashCounter = cashCounter;
     }
 
-    public void putCash (int put){
-        cash +=put;
+    public void putCash (){
+        cash +=cashCounter.countCash();
     }
 
     private void giveBackCash(int rest){
@@ -62,9 +62,7 @@ public class CoffeeMachine {
             cupContainer.putCup();
             coffeeGrinder.grindCoffee();
             coffeeTank.giveCoffee();
-
             coffee(2);
-
             waterHeater.applyHeat();
             waterTank.giveWater();
             waterTank.giveWater();
@@ -72,8 +70,10 @@ public class CoffeeMachine {
 
             message = "Kawa Czarna gotowa";
             display.displayMessage(message);
+            System.out.println(message);
             cash -=cost;
             giveBackCash(cash);
+
         } else display.displayMessage(message);
 }
     public void coffeeEspressoButton(){
@@ -82,16 +82,16 @@ public class CoffeeMachine {
             cupContainer.putCup();
             coffeeGrinder.grindCoffee();
             coffeeTank.giveCoffee();
-
             coffee(5);
-
             waterHeater.applyHeat();
             waterTank.giveWater();
 
             message = "Kawa Espresso gotowa";
             display.displayMessage(message);
+            System.out.println(message);
             cash -=cost;
             giveBackCash(cash);
+
         } else display.displayMessage(message);
     }
 
@@ -101,9 +101,7 @@ public class CoffeeMachine {
             cupContainer.putCup();
             coffeeGrinder.grindCoffee();
             coffeeTank.giveCoffee();
-
             coffee(1);
-
             milkTank.addMilk();
             waterHeater.applyHeat();
             waterTank.giveWater();
@@ -111,6 +109,7 @@ public class CoffeeMachine {
 
             message = "Kawa Biala gotowa";
             display.displayMessage(message);
+            System.out.println(message);
             cash -=cost;
             giveBackCash(cash);
         } else display.displayMessage(message);

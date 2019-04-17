@@ -22,11 +22,9 @@ public class CoffeeMachineTest {
     @Test
     public void shouldMakeBlackCoffee(){
         // Given
-        //when(cashCounter.countCash()).thenReturn(5);
-        //cmTest.putCash(5);
-        //when(cashCounter.countCash()).thenReturn(5);
+        when(cashCounter.countCash()).thenReturn(5);
         // When
-        cmTest.putCash(6);
+        cmTest.putCash();
         cmTest.coffeeBlackButton();
         // Then
         verify(cupContainer).putCup();
@@ -42,10 +40,9 @@ public class CoffeeMachineTest {
     @Test
     public void shouldMakeEspressoCoffee(){
         // Given
-        //cmTest.putCash(5);
-        //when(cashCounter.countCash()).thenReturn(5);
+        when(cashCounter.countCash()).thenReturn(5);
         // When
-        cmTest.putCash(5);
+        cmTest.putCash();
         cmTest.coffeeEspressoButton();
         // Then
         verify(cupContainer).putCup();
@@ -61,9 +58,9 @@ public class CoffeeMachineTest {
     @Test
     public void shouldMakeWhiteCoffee(){
         // Given
-
+        when(cashCounter.countCash()).thenReturn(5);
         // When
-        cmTest.putCash(5);
+        cmTest.putCash();
         cmTest.coffeeWhiteButton();
         // Then
         verify(cupContainer).putCup();
@@ -80,10 +77,9 @@ public class CoffeeMachineTest {
     // tu jest cos nie tak !!!!!!!
     public void shouldAddMoneyThenDisplayNotEnoughMoney() {
         // Given
-        //cmTest.putCash(1);
-        when(cashCounter.countCash()).thenReturn(5);
+        when(cashCounter.countCash()).thenReturn(1);
         // When
-        //cmTest.putCash(5);
+        cmTest.putCash();
         cmTest.coffeeBlackButton();
         // Then
         verify(display).displayMessage("Za malo kasy");
