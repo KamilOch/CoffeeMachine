@@ -35,6 +35,7 @@ public class CoffeeMachineTest {
         verify(waterTank, times (3)).giveWater();
         verify(display).displayMessage("Kawa Czarna gotowa");
         verifyZeroInteractions(milkTank);
+        verify(cashCounter).restCash(3);
     }
 
     @Test
@@ -53,6 +54,7 @@ public class CoffeeMachineTest {
         verify(waterTank, times (1)).giveWater();
         verify(display).displayMessage("Kawa Espresso gotowa");
         verifyZeroInteractions(milkTank);
+        verify(cashCounter).restCash(2);
     }
 
     @Test
@@ -71,6 +73,7 @@ public class CoffeeMachineTest {
         verify(waterHeater).applyHeat();
         verify(waterTank, times (2)).giveWater();
         verify(display).displayMessage("Kawa Biala gotowa");
+        verify(cashCounter).restCash(1);
     }
 
     @Test
@@ -83,6 +86,7 @@ public class CoffeeMachineTest {
         cmTest.coffeeBlackButton();
         // Then
         verify(display).displayMessage("Za malo kasy");
+        verify(cashCounter).restCash(1);
     }
 
 }
