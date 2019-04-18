@@ -33,7 +33,8 @@ public class CoffeeMachine {
     }
 */
     private void giveBackCash(int rest){
-        System.out.println("Wydaje reszte : "+ cashCounter.restCash(rest)+" PLN");
+        String restStr = String.valueOf(rest);
+        System.out.println("Wydaje reszte : "+ restStr+" PLN");
         cash=0;
     }
 

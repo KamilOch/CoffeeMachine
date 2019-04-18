@@ -9,7 +9,7 @@ public class DemoCashCounter implements CashCounter {
     }
 
     @Override
-    public int restCash(int reszta) {
-        return reszta;
+    public int restCash(int rest) {
+        return rest;
     }
 }

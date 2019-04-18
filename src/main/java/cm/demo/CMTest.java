@@ -24,11 +24,11 @@ public class CMTest {
         System.out.println(" ");
         //coffeeMachine.putCash();
         Thread.sleep(1000);
-        coffeeMachine.coffeeEspressoButton();
+        //coffeeMachine.coffeeEspressoButton();
         System.out.println(" ");
         //coffeeMachine.putCash();
         Thread.sleep(1000);
-        coffeeMachine.coffeeWhiteButton();
+        //coffeeMachine.coffeeWhiteButton();
 
 
 

@@ -4,5 +4,5 @@ public interface CashCounter {
 
     int countCash();
 
-    int restCash(int reszta);
+    int restCash(int rest);
 }

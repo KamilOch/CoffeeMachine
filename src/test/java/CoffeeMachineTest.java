@@ -1,3 +1,4 @@
+
 import cm.domain.*;
 import org.junit.Test;
 
@@ -24,7 +25,6 @@ public class CoffeeMachineTest {
         // Given
         when(cashCounter.countCash()).thenReturn(5);
         // When
-        //cmTest.putCash();
         cmTest.coffeeBlackButton();
         // Then
         verify(cupContainer).putCup();
