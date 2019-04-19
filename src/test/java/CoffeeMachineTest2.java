@@ -47,9 +47,12 @@ public class CoffeeMachineTest2 {
         verify(coffeeTank).giveCoffee();
         verify(sugarTank, times(2)).adSugar();
         verify(waterHeater).applyHeat();
+        /*
         if (s.equals("podaje wode z wlasnego mocka")) {
             System.out.println("Test waterTank2 OK");
         } else System.out.println("Test waterTank2 NOK!!!!!!");
+        */
+        Assert.assertEquals("podaje wode z wlasnego mocka", s);
         //verify(waterTank, times (3)).giveWater();
         verify(display).displayMessage("Kawa Czarna gotowa");
         verifyZeroInteractions(milkTank);
