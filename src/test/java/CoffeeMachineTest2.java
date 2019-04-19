@@ -1,5 +1,6 @@
 
 import cm.domain.*;
+import org.junit.Assert;
 import org.junit.Test;
 
 import static org.mockito.Mockito.*;
@@ -7,10 +8,13 @@ import static org.mockito.Mockito.*;
 
 public class CoffeeMachineTest2 {
 
+    String s="null";
+
     WaterTank waterTank2 = new WaterTank() {
         @Override
         public void giveWater() {
-            System.out.println("podaje wode z wlasnego mocka");
+            s = "podaje wode z wlasnego mocka";
+            System.out.println(s);
         }
     };
 
@@ -34,6 +38,7 @@ public class CoffeeMachineTest2 {
     public void shouldMakeBlackCoffee(){
         // Given
         when(cashCounter.countCash()).thenReturn(5);
+
         // When
         cmTest.coffeeBlackButton();
         // Then
@@ -42,7 +47,9 @@ public class CoffeeMachineTest2 {
         verify(coffeeTank).giveCoffee();
         verify(sugarTank, times(2)).adSugar();
         verify(waterHeater).applyHeat();
-
+        if (s.equals("podaje wode z wlasnego mocka")) {
+            System.out.println("Test waterTank2 OK");
+        } else System.out.println("Test waterTank2 NOK!!!!!!");
         //verify(waterTank, times (3)).giveWater();
         verify(display).displayMessage("Kawa Czarna gotowa");
         verifyZeroInteractions(milkTank);
