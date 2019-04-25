@@ -4,7 +4,7 @@ import cm.domain.SugarTank;
 
 public class DemoSugarTank implements SugarTank {
     @Override
-    public void adSugar() {
+    public void addSugar() {
         System.out.println("podaje porcje cukru");
     }
 }

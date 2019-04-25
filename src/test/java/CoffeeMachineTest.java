@@ -30,7 +30,7 @@ public class CoffeeMachineTest {
         verify(cupContainer).putCup();
         verify(coffeeGrinder).grindCoffee();
         verify(coffeeTank).giveCoffee();
-        verify(sugarTank, times(2)).adSugar();
+        verify(sugarTank, times(2)).addSugar();
         verify(waterHeater).applyHeat();
         verify(waterTank, times (3)).giveWater();
         verify(display).displayMessage("Kawa Czarna gotowa");
@@ -49,7 +49,7 @@ public class CoffeeMachineTest {
         verify(cupContainer).putCup();
         verify(coffeeGrinder).grindCoffee();
         verify(coffeeTank).giveCoffee();
-        verify(sugarTank, times(5)).adSugar();
+        verify(sugarTank, times(5)).addSugar();
         verify(waterHeater).applyHeat();
         verify(waterTank, times (1)).giveWater();
         verify(display).displayMessage("Kawa Espresso gotowa");
@@ -68,7 +68,7 @@ public class CoffeeMachineTest {
         verify(cupContainer).putCup();
         verify(coffeeGrinder).grindCoffee();
         verify(coffeeTank).giveCoffee();
-        verify(sugarTank, times(1)).adSugar();
+        verify(sugarTank, times(1)).addSugar();
         verify(milkTank).addMilk();
         verify(waterHeater).applyHeat();
         verify(waterTank, times (2)).giveWater();

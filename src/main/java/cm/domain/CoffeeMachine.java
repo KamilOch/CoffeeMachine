@@ -51,7 +51,7 @@ public class CoffeeMachine {
     void sugarAmount(int cukier){
 
         for (int i=0; i<cukier; i++){
-            sugarTank.adSugar();
+            sugarTank.addSugar();
         }
     }
 

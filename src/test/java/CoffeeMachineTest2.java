@@ -8,8 +8,8 @@ import static org.mockito.Mockito.*;
 
 public class CoffeeMachineTest2 {
 
-    String x="a kuku";
-    String s="null";
+    private String x="a kuku";
+    private String s="null";
     int cash =0;
     int price=0;
 

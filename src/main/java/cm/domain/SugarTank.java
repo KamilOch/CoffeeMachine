@@ -2,5 +2,5 @@ package cm.domain;
 
 public interface SugarTank {
 
-    void adSugar();
+    void addSugar();
 }

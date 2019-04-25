@@ -2,16 +2,16 @@ import cm.domain.SugarTank;
 
 public class TestSugarTank implements SugarTank {
 
-    public String getC() {
-        return c;
-    }
-
-    String c;
+    private String c;
 
     @Override
-    public void adSugar() {
+    public void addSugar() {
         c= "podaje porcje cukru z wlasnego mocka";
         System.out.println(c);
+    }
+
+    public String getC() {
+        return c;
     }
 
 }
