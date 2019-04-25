@@ -8,6 +8,7 @@ import static org.mockito.Mockito.*;
 
 public class CoffeeMachineTest2 {
 
+    String x="a kuku";
     String s="null";
     int cash =0;
     int price=0;
@@ -39,12 +40,12 @@ public class CoffeeMachineTest2 {
     CoffeeTank coffeeTank = mock(CoffeeTank.class);
     WaterHeater waterHeater = mock(WaterHeater.class);
     CoffeeGrinder coffeeGrinder = mock(CoffeeGrinder.class);
-    SugarTank sugarTank = mock(SugarTank.class);
+    TestSugarTank sugarTank2 = new TestSugarTank();
     MilkTank milkTank = mock(MilkTank.class);
     CupContainer cupContainer = mock(CupContainer.class);
     Display display = mock(Display.class);
 
-    CoffeeMachine cmTest = new CoffeeMachine(waterTank2,coffeeTank,waterHeater, coffeeGrinder, sugarTank, milkTank, cupContainer, display, cashCounter2);
+    CoffeeMachine cmTest = new CoffeeMachine(waterTank2,coffeeTank,waterHeater, coffeeGrinder, sugarTank2, milkTank, cupContainer, display, cashCounter2);
 
 
     @Test
@@ -59,7 +60,10 @@ public class CoffeeMachineTest2 {
         verify(cupContainer).putCup();
         verify(coffeeGrinder).grindCoffee();
         verify(coffeeTank).giveCoffee();
-        verify(sugarTank, times(2)).adSugar();
+        x= sugarTank2.getC();
+        //verify(sugarTank, times(2)).adSugar();
+        Assert.assertEquals("podaje porcje cukru z wlasnego mocka", x);
+
         verify(waterHeater).applyHeat();
         /*
         if (s.equals("podaje wode z wlasnego mocka")) {
@@ -68,7 +72,6 @@ public class CoffeeMachineTest2 {
         */
         Assert.assertEquals("podaje wode z wlasnego mocka", s);
         //verify(waterTank, times (3)).giveWater();
-
         verify(display).displayMessage("Kawa Czarna gotowa");
         verifyZeroInteractions(milkTank);
         //verify(cashCounter2).restCash(3);
