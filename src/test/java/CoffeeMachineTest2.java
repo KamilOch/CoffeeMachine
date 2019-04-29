@@ -59,7 +59,7 @@ public class CoffeeMachineTest2 {
         verify(cupContainer).putCup();
         verify(coffeeGrinder).grindCoffee();
         verify(coffeeTank).giveCoffee();
-        x = sugarTank2.getC();
+        x = sugarTank2.putSugar();
         //verify(sugarTank, times(2)).adSugar();
         Assert.assertEquals("podaje porcje cukru z wlasnego mocka", x);
 

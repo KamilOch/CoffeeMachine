@@ -7,10 +7,10 @@ public class TestSugarTank implements SugarTank {
     @Override
     public void addSugar() {
         sugarAdding = "podaje porcje cukru z wlasnego mocka";
-        System.out.println(sugarTankInfo);
+        System.out.println(sugarAdding);
     }
 
-    public String getC() {
+    public String putSugar() {
         return sugarAdding;
     }
 
