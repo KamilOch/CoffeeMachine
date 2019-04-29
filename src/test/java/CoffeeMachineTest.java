@@ -17,11 +17,11 @@ public class CoffeeMachineTest {
     Display display = mock(Display.class);
     CashCounter cashCounter = mock(CashCounter.class);
 
-    CoffeeMachine cmTest = new CoffeeMachine(waterTank,coffeeTank,waterHeater, coffeeGrinder, sugarTank, milkTank, cupContainer, display, cashCounter);
+    CoffeeMachine cmTest = new CoffeeMachine(waterTank, coffeeTank, waterHeater, coffeeGrinder, sugarTank, milkTank, cupContainer, display, cashCounter);
 
 
     @Test
-    public void shouldMakeBlackCoffee(){
+    public void shouldMakeBlackCoffee() {
         // Given
         when(cashCounter.countCash()).thenReturn(5);
         // When
@@ -32,14 +32,14 @@ public class CoffeeMachineTest {
         verify(coffeeTank).giveCoffee();
         verify(sugarTank, times(2)).addSugar();
         verify(waterHeater).applyHeat();
-        verify(waterTank, times (3)).giveWater();
+        verify(waterTank, times(3)).giveWater();
         verify(display).displayMessage("Kawa Czarna gotowa");
         verifyZeroInteractions(milkTank);
         verify(cashCounter).restCash(3);
     }
 
     @Test
-    public void shouldMakeEspressoCoffee(){
+    public void shouldMakeEspressoCoffee() {
         // Given
         when(cashCounter.countCash()).thenReturn(5);
         // When
@@ -51,14 +51,14 @@ public class CoffeeMachineTest {
         verify(coffeeTank).giveCoffee();
         verify(sugarTank, times(5)).addSugar();
         verify(waterHeater).applyHeat();
-        verify(waterTank, times (1)).giveWater();
+        verify(waterTank, times(1)).giveWater();
         verify(display).displayMessage("Kawa Espresso gotowa");
         verifyZeroInteractions(milkTank);
         verify(cashCounter).restCash(2);
     }
 
     @Test
-    public void shouldMakeWhiteCoffee(){
+    public void shouldMakeWhiteCoffee() {
         // Given
         when(cashCounter.countCash()).thenReturn(5);
         // When
@@ -71,7 +71,7 @@ public class CoffeeMachineTest {
         verify(sugarTank, times(1)).addSugar();
         verify(milkTank).addMilk();
         verify(waterHeater).applyHeat();
-        verify(waterTank, times (2)).giveWater();
+        verify(waterTank, times(2)).giveWater();
         verify(display).displayMessage("Kawa Biala gotowa");
         verify(cashCounter).restCash(1);
     }

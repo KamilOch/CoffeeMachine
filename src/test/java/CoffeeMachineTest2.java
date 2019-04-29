@@ -8,10 +8,10 @@ import static org.mockito.Mockito.*;
 
 public class CoffeeMachineTest2 {
 
-    private String x="a kuku";
-    private String s="null";
-    int cash =0;
-    int price=0;
+    private String x = "a kuku";
+    private String s = "null";
+    int cash = 0;
+    int price = 0;
 
     WaterTank waterTank2 = new WaterTank() {
         @Override
@@ -30,11 +30,10 @@ public class CoffeeMachineTest2 {
 
         @Override
         public int restCash(int rest) {
-            rest-=price;
+            rest -= price;
             return rest;
         }
     };
-
 
 
     CoffeeTank coffeeTank = mock(CoffeeTank.class);
@@ -45,22 +44,22 @@ public class CoffeeMachineTest2 {
     CupContainer cupContainer = mock(CupContainer.class);
     Display display = mock(Display.class);
 
-    CoffeeMachine cmTest = new CoffeeMachine(waterTank2,coffeeTank,waterHeater, coffeeGrinder, sugarTank2, milkTank, cupContainer, display, cashCounter2);
+    CoffeeMachine cmTest = new CoffeeMachine(waterTank2, coffeeTank, waterHeater, coffeeGrinder, sugarTank2, milkTank, cupContainer, display, cashCounter2);
 
 
     @Test
-    public void shouldMakeBlackCoffee(){
+    public void shouldMakeBlackCoffee() {
         // Given
         //when(cashCounter.countCash()).thenReturn(5);
         cashCounter2.countCash();
-        price=2;
+        price = 2;
         // When
         cmTest.coffeeBlackButton();
         // Then
         verify(cupContainer).putCup();
         verify(coffeeGrinder).grindCoffee();
         verify(coffeeTank).giveCoffee();
-        x= sugarTank2.getC();
+        x = sugarTank2.getC();
         //verify(sugarTank, times(2)).adSugar();
         Assert.assertEquals("podaje porcje cukru z wlasnego mocka", x);
 
@@ -75,7 +74,7 @@ public class CoffeeMachineTest2 {
         verify(display).displayMessage("Kawa Czarna gotowa");
         verifyZeroInteractions(milkTank);
         //verify(cashCounter2).restCash(3);
-        Assert.assertEquals(3,cashCounter2.restCash(cash));
+        Assert.assertEquals(3, cashCounter2.restCash(cash));
     }
 /*
     @Test
